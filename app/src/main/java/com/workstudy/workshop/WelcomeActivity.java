@@ -12,7 +12,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class WelcomeActivity extends AppCompatActivity{
+public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
@@ -24,6 +24,19 @@ public class WelcomeActivity extends AppCompatActivity{
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window w = getWindow();
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
+
+        Button playButton = findViewById(R.id.playButton);
+        playButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.playButton:
+                startActivity(new Intent(WelcomeActivity.this, GameActivity.class));
+                finish();
+                break;
         }
     }
 }

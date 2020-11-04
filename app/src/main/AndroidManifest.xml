@@ -12,6 +12,11 @@
 
 
         <activity
+            android:name=".GameActivity"
+            android:theme="@style/noBar"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
             android:name=".WelcomeActivity"
             android:theme="@style/noBar"
             android:screenOrientation="landscape"
