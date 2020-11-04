@@ -74,7 +74,7 @@ public class WelcomeActivity extends AppCompatActivity{
                         question.id = Integer.parseInt(currentValue);
                     }
 
-                    if (question.id == 1){
+                    if (question.id == 3){
                         if (localName.equalsIgnoreCase("nom_question")){
                             question.nom = currentValue;
                         }

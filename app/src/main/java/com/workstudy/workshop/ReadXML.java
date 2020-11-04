@@ -39,6 +39,7 @@ public class ReadXML {
     private Reponse  reponse  = new Reponse();
 
     public Question ReturnOneQuestion (Context context, final int idQuestion){
+
         try{
             SAXParserFactory parserFactory = SAXParserFactory.newInstance();
             SAXParser parser = parserFactory.newSAXParser();
@@ -77,9 +78,76 @@ public class ReadXML {
 
                             question.reponse.add(reponse);
                         }
-                        else if (localName.equalsIgnoreCase("question")){
+                    }
+                }
+                @Override
+                public void characters(char[] ch, int start, int length) throws SAXException {
+                    if (currentElement) {
+                        currentValue = currentValue +  new String(ch, start, length);
+                    }
+                }
+            };
 
-                            questionList.add(question);
+            InputStream istream = context.getAssets().open("questions.xml");
+            parser.parse(istream,handler);
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        }
+
+        return question;
+    }
+
+    public ArrayList<Question> ReturnManyQuestion (Context context, final ArrayList<Integer> idQuestionList){
+
+        try{
+            SAXParserFactory parserFactory = SAXParserFactory.newInstance();
+            SAXParser parser = parserFactory.newSAXParser();
+            DefaultHandler handler = new DefaultHandler(){
+                String currentValue = "";
+                boolean currentElement = false;
+                public void startElement(String uri, String localName,String qName, Attributes attributes) throws SAXException {
+                    currentElement = true;
+                    currentValue = "";
+                    if(localName.equals("question")){
+                        question = new Question();
+                        question.reponse = new ArrayList<>();
+                    }
+                    else if(localName.equals("reponse")) {
+                        reponse = new Reponse();
+                    }
+                }
+                public void endElement(String uri, String localName, String qName) throws SAXException {
+                    currentElement = false;
+
+                    if (localName.equalsIgnoreCase("id_question")){
+                        question.id = Integer.parseInt(currentValue);
+                    }
+
+                    for (int idQuestion : idQuestionList) {
+                        if (question.id == idQuestion){
+                            if (localName.equalsIgnoreCase("nom_question")){
+                                question.nom = currentValue;
+                            }
+                            else if (localName.equalsIgnoreCase("id_reponse")){
+                                reponse.id = Integer.parseInt(currentValue);
+                            }
+                            else if (localName.equalsIgnoreCase("nom_reponse")){
+                                reponse.nom = currentValue;
+                            }
+                            else if (localName.equalsIgnoreCase("reponse")){
+
+                                question.reponse.add(reponse);
+                            }
+                            else if (localName.equalsIgnoreCase("question")){
+
+                                questionList.add(question);
+                            }
                         }
                     }
                 }
@@ -91,15 +159,9 @@ public class ReadXML {
                 }
             };
 
-
             InputStream istream = context.getAssets().open("questions.xml");
             parser.parse(istream,handler);
 
-
-
-            String t = "t";
-            //ListAdapter adapter = new SimpleAdapter(WelcomeActivity.this, questionList, R.layout.list_row,new String[]{"name","reponse","id"}, new int[]{R.id.name, R.id.reponse_1, R.id.reponse_2});
-            //lv.setAdapter(adapter);
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -109,6 +171,6 @@ public class ReadXML {
             e.printStackTrace();
         }
 
-        return question;
+        return questionList;
     }
 }
