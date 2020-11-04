@@ -38,7 +38,7 @@ public class ReadXML {
     private Question question = new Question();
     private Reponse  reponse  = new Reponse();
 
-    public Question ReturnOneQuestion (Context context, final int idQuestion){
+    public Question GetOneQuestion (Context context, final int idQuestion){
 
         try{
             SAXParserFactory parserFactory = SAXParserFactory.newInstance();
@@ -63,7 +63,9 @@ public class ReadXML {
                     if (localName.equalsIgnoreCase("id_question")){
                         question.id = Integer.parseInt(currentValue);
                     }
-
+                    else if (localName.equalsIgnoreCase("categorie")){
+                        question.categorie = currentValue;
+                    }
                     if (question.id == idQuestion){
                         if (localName.equalsIgnoreCase("nom_question")){
                             question.nom = currentValue;
@@ -103,7 +105,7 @@ public class ReadXML {
         return question;
     }
 
-    public ArrayList<Question> ReturnManyQuestion (Context context, final ArrayList<Integer> idQuestionList){
+    public ArrayList<Question> GetManyQuestion (Context context, final ArrayList<Integer> idQuestionList){
 
         try{
             SAXParserFactory parserFactory = SAXParserFactory.newInstance();
@@ -134,9 +136,13 @@ public class ReadXML {
                             if (localName.equalsIgnoreCase("nom_question")){
                                 question.nom = currentValue;
                             }
+                            else if (localName.equalsIgnoreCase("categorie")){
+                                question.categorie = currentValue;
+                            }
                             else if (localName.equalsIgnoreCase("id_reponse")){
                                 reponse.id = Integer.parseInt(currentValue);
                             }
+
                             else if (localName.equalsIgnoreCase("nom_reponse")){
                                 reponse.nom = currentValue;
                             }
@@ -149,6 +155,76 @@ public class ReadXML {
                                 questionList.add(question);
                             }
                         }
+                    }
+                }
+                @Override
+                public void characters(char[] ch, int start, int length) throws SAXException {
+                    if (currentElement) {
+                        currentValue = currentValue +  new String(ch, start, length);
+                    }
+                }
+            };
+
+            InputStream istream = context.getAssets().open("questions.xml");
+            parser.parse(istream,handler);
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        }
+
+        return questionList;
+    }
+
+    public ArrayList<Question> GetAllQuestions (Context context){
+
+        try{
+            SAXParserFactory parserFactory = SAXParserFactory.newInstance();
+            SAXParser parser = parserFactory.newSAXParser();
+            DefaultHandler handler = new DefaultHandler(){
+                String currentValue = "";
+                boolean currentElement = false;
+                public void startElement(String uri, String localName,String qName, Attributes attributes) throws SAXException {
+                    currentElement = true;
+                    currentValue = "";
+                    if(localName.equals("question")){
+                        question = new Question();
+                        question.reponse = new ArrayList<>();
+                    }
+                    else if(localName.equals("reponse")) {
+                        reponse = new Reponse();
+                    }
+                }
+                public void endElement(String uri, String localName, String qName) throws SAXException {
+                    currentElement = false;
+
+                    if (localName.equalsIgnoreCase("id_question")){
+                        question.id = Integer.parseInt(currentValue);
+                    }
+                    else if (localName.equalsIgnoreCase("nom_question")){
+                        question.nom = currentValue;
+                    }
+                    else if (localName.equalsIgnoreCase("categorie")){
+                        question.categorie = currentValue;
+                    }
+                    else if (localName.equalsIgnoreCase("id_reponse")){
+                        reponse.id = Integer.parseInt(currentValue);
+                    }
+
+                    else if (localName.equalsIgnoreCase("nom_reponse")){
+                        reponse.nom = currentValue;
+                    }
+                    else if (localName.equalsIgnoreCase("reponse")){
+
+                        question.reponse.add(reponse);
+                    }
+                    else if (localName.equalsIgnoreCase("question")){
+
+                        questionList.add(question);
                     }
                 }
                 @Override
