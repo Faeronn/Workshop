@@ -33,18 +33,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ReadXML {
 
-    private static ArrayList<Question> questionList = new ArrayList<>();
-    private static ArrayList<Reponse>  reponseList  = new ArrayList<>();
-    private static Question question = new Question();
-    private static Question retournQuestion = new Question();
-    private static Reponse  reponse  = new Reponse();
+    private static ArrayList<Question>  questionList   = new ArrayList<>();
+    private static ArrayList<Reponse>   reponseList    = new ArrayList<>();
+    private static ArrayList<Ressource> ressourceList  = new ArrayList<>();
+    private static Question   question        = new Question();
+    private static Question   retournQuestion = new Question();
+    private static Reponse    reponse         = new Reponse();
+    private static Ressource  ressource       = new Ressource();
 
     public static Question GetOneQuestion (Context context, final int idQuestion){
         try{
             SAXParserFactory parserFactory = SAXParserFactory.newInstance();
-            SAXParser parser = parserFactory.newSAXParser();
-            DefaultHandler handler = new DefaultHandler(){
-                String currentValue = "";
+            SAXParser        parser        = parserFactory.newSAXParser();
+            DefaultHandler   handler       = new DefaultHandler(){
+                String  currentValue   = "";
                 boolean currentElement = false;
                 public void startElement(String uri, String localName,String qName, Attributes attributes) throws SAXException {
                     currentElement = true;
@@ -55,11 +57,15 @@ public class ReadXML {
                     }
                     else if(localName.equals("reponse")) {
                         reponse = new Reponse();
+                        reponse.ressources = new ArrayList<>();
+                    }
+                    else if(localName.equals("ressource")) {
+                        ressource = new Ressource();
                     }
                 }
                 public void endElement(String uri, String localName, String qName) throws SAXException {
                     currentElement = false;
-
+                    // --- Question
                     if (localName.equalsIgnoreCase("id_question")){
                         question.id = Integer.parseInt(currentValue);
                     }
@@ -67,19 +73,34 @@ public class ReadXML {
                         if (localName.equalsIgnoreCase("nom_question")){
                             question.nom = currentValue;
                         }
-                        else if (localName.equalsIgnoreCase("categorie")){
+                        else if (localName.equalsIgnoreCase("nom_categorie")){
                             question.categorie = currentValue;
                         }
+
+                        // --- Reponse
                         else if (localName.equalsIgnoreCase("id_reponse")){
                             reponse.id = Integer.parseInt(currentValue);
                         }
                         else if (localName.equalsIgnoreCase("nom_reponse")){
                             reponse.nom = currentValue;
                         }
+
+                        // --- Ressources
+                        else if (localName.equalsIgnoreCase("id_ressource")){
+                            ressource.idRessource = Integer.parseInt(currentValue);
+                        }
+                        else if (localName.equalsIgnoreCase("stat_ressource")){
+                            ressource.stat = Integer.parseInt(currentValue);
+                        }
+                        else if (localName.equalsIgnoreCase("ressource")){
+                            reponse.ressources.add(ressource);
+                        }
+
                         else if (localName.equalsIgnoreCase("reponse")){
 
                             question.reponse.add(reponse);
                         }
+
                         else if (localName.equalsIgnoreCase("question")){
                             retournQuestion = question;
                         }
@@ -125,11 +146,15 @@ public class ReadXML {
                     }
                     else if(localName.equals("reponse")) {
                         reponse = new Reponse();
+                        reponse.ressources = new ArrayList<>();
+                    }
+                    else if(localName.equals("ressource")) {
+                        ressource = new Ressource();
                     }
                 }
                 public void endElement(String uri, String localName, String qName) throws SAXException {
                     currentElement = false;
-
+                    // --- Question
                     if (localName.equalsIgnoreCase("id_question")){
                         question.id = Integer.parseInt(currentValue);
                     }
@@ -139,22 +164,35 @@ public class ReadXML {
                             if (localName.equalsIgnoreCase("nom_question")){
                                 question.nom = currentValue;
                             }
-                            else if (localName.equalsIgnoreCase("categorie")){
+                            else if (localName.equalsIgnoreCase("nom_categorie")){
                                 question.categorie = currentValue;
                             }
+
+                            // --- Reponse
                             else if (localName.equalsIgnoreCase("id_reponse")){
                                 reponse.id = Integer.parseInt(currentValue);
                             }
-
                             else if (localName.equalsIgnoreCase("nom_reponse")){
                                 reponse.nom = currentValue;
                             }
+
+                            // --- Ressources
+                            else if (localName.equalsIgnoreCase("id_ressource")){
+                                ressource.idRessource = Integer.parseInt(currentValue);
+                            }
+                            else if (localName.equalsIgnoreCase("stat_ressource")){
+                                ressource.stat = Integer.parseInt(currentValue);
+                            }
+                            else if (localName.equalsIgnoreCase("ressource")){
+                                reponse.ressources.add(ressource);
+                            }
+
                             else if (localName.equalsIgnoreCase("reponse")){
 
                                 question.reponse.add(reponse);
                             }
-                            else if (localName.equalsIgnoreCase("question")){
 
+                            else if (localName.equalsIgnoreCase("question")){
                                 questionList.add(question);
                             }
                         }
@@ -200,27 +238,45 @@ public class ReadXML {
                     }
                     else if(localName.equals("reponse")) {
                         reponse = new Reponse();
+                        reponse.ressources = new ArrayList<>();
+                    }
+                    else if(localName.equals("ressource")) {
+                        ressource = new Ressource();
                     }
                 }
                 public void endElement(String uri, String localName, String qName) throws SAXException {
                     currentElement = false;
 
+                    // --- Question
                     if (localName.equalsIgnoreCase("id_question")){
                         question.id = Integer.parseInt(currentValue);
                     }
-                    else if (localName.equalsIgnoreCase("nom_question")){
+                    if (localName.equalsIgnoreCase("nom_question")){
                         question.nom = currentValue;
                     }
-                    else if (localName.equalsIgnoreCase("categorie")){
+                    else if (localName.equalsIgnoreCase("nom_categorie")){
                         question.categorie = currentValue;
                     }
+
+                    // --- Reponse
                     else if (localName.equalsIgnoreCase("id_reponse")){
                         reponse.id = Integer.parseInt(currentValue);
                     }
-
                     else if (localName.equalsIgnoreCase("nom_reponse")){
                         reponse.nom = currentValue;
                     }
+
+                    // --- Ressources
+                    else if (localName.equalsIgnoreCase("id_ressource")){
+                        ressource.idRessource = Integer.parseInt(currentValue);
+                    }
+                    else if (localName.equalsIgnoreCase("stat_ressource")){
+                        ressource.stat = Integer.parseInt(currentValue);
+                    }
+                    else if (localName.equalsIgnoreCase("ressource")){
+                        reponse.ressources.add(ressource);
+                    }
+
                     else if (localName.equalsIgnoreCase("reponse")){
 
                         question.reponse.add(reponse);

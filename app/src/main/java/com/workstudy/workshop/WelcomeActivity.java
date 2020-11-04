@@ -46,7 +46,7 @@ public class WelcomeActivity extends AppCompatActivity{
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
 
-        questionList.add(ReadXML.GetOneQuestion(WelcomeActivity.this, 1));
+        questionList = ReadXML.GetAllQuestions(WelcomeActivity.this);
 
         LinearLayout boutonsLayout = (LinearLayout) findViewById(R.id.buttonsLayout);
         TextView questionView = findViewById(R.id.questionView);

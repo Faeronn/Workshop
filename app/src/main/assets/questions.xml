@@ -5,6 +5,7 @@
     <question>
 
         <id_question>1</id_question>
+        <nom_categorie>fruit</nom_categorie>
 
         <nom_question>Que voulez-vous Pierre ?</nom_question>
 
@@ -23,31 +24,83 @@
     <question>
 
         <id_question>2</id_question>
-
+        <nom_categorie>GrosFruit</nom_categorie>
         <nom_question>Que voulez-vous jean ?</nom_question>
 
         <reponse>
             <id_reponse>1</id_reponse>
             <nom_reponse>Une poirre</nom_reponse>
+
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-10000</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>-30</stat_ressource>
+            </ressource>
         </reponse>
         <reponse>
             <id_reponse>2</id_reponse>
             <nom_reponse>Une poirrette</nom_reponse>
+
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-10000</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>-30</stat_ressource>
+            </ressource>
         </reponse>
     </question>
 
     <question>
         <id_question>3</id_question>
-
+        <nom_categorie>PetitFruit</nom_categorie>
         <nom_question>Que voulez-vous jean pierre ?</nom_question>
 
         <reponse>
             <id_reponse>1</id_reponse>
             <nom_reponse>Une cerise</nom_reponse>
+
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-10000</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>-30</stat_ressource>
+            </ressource>
         </reponse>
         <reponse>
             <id_reponse>2</id_reponse>
             <nom_reponse>Une cerisette</nom_reponse>
+
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-10000</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>-30</stat_ressource>
+            </ressource>
         </reponse>
     </question>
 
