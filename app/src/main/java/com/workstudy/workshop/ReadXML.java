@@ -33,13 +33,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ReadXML {
 
-    private ArrayList<Question> questionList = new ArrayList<>();
-    private ArrayList<Reponse>  reponseList  = new ArrayList<>();
-    private Question question = new Question();
-    private Reponse  reponse  = new Reponse();
+    private static ArrayList<Question> questionList = new ArrayList<>();
+    private static ArrayList<Reponse>  reponseList  = new ArrayList<>();
+    private static Question question = new Question();
+    private static Question retournQuestion = new Question();
+    private static Reponse  reponse  = new Reponse();
 
-    public Question GetOneQuestion (Context context, final int idQuestion){
-
+    public static Question GetOneQuestion (Context context, final int idQuestion){
         try{
             SAXParserFactory parserFactory = SAXParserFactory.newInstance();
             SAXParser parser = parserFactory.newSAXParser();
@@ -63,12 +63,12 @@ public class ReadXML {
                     if (localName.equalsIgnoreCase("id_question")){
                         question.id = Integer.parseInt(currentValue);
                     }
-                    else if (localName.equalsIgnoreCase("categorie")){
-                        question.categorie = currentValue;
-                    }
                     if (question.id == idQuestion){
                         if (localName.equalsIgnoreCase("nom_question")){
                             question.nom = currentValue;
+                        }
+                        else if (localName.equalsIgnoreCase("categorie")){
+                            question.categorie = currentValue;
                         }
                         else if (localName.equalsIgnoreCase("id_reponse")){
                             reponse.id = Integer.parseInt(currentValue);
@@ -79,6 +79,9 @@ public class ReadXML {
                         else if (localName.equalsIgnoreCase("reponse")){
 
                             question.reponse.add(reponse);
+                        }
+                        else if (localName.equalsIgnoreCase("question")){
+                            retournQuestion = question;
                         }
                     }
                 }
@@ -102,10 +105,10 @@ public class ReadXML {
             e.printStackTrace();
         }
 
-        return question;
+        return retournQuestion;
     }
 
-    public ArrayList<Question> GetManyQuestion (Context context, final ArrayList<Integer> idQuestionList){
+    public static ArrayList<Question> GetManyQuestion (Context context, final ArrayList<Integer> idQuestionList){
 
         try{
             SAXParserFactory parserFactory = SAXParserFactory.newInstance();
@@ -180,7 +183,7 @@ public class ReadXML {
         return questionList;
     }
 
-    public ArrayList<Question> GetAllQuestions (Context context){
+    public static ArrayList<Question> GetAllQuestions (Context context){
 
         try{
             SAXParserFactory parserFactory = SAXParserFactory.newInstance();

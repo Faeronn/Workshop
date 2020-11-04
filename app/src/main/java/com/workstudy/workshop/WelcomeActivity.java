@@ -46,90 +46,19 @@ public class WelcomeActivity extends AppCompatActivity{
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
 
+        questionList.add(ReadXML.GetOneQuestion(WelcomeActivity.this, 1));
 
-        try{
+        LinearLayout boutonsLayout = (LinearLayout) findViewById(R.id.buttonsLayout);
+        TextView questionView = findViewById(R.id.questionView);
+        for(Question question : questionList){
 
+            questionView.setText(question.nom);
 
-
-            SAXParserFactory parserFactory = SAXParserFactory.newInstance();
-            SAXParser parser = parserFactory.newSAXParser();
-            DefaultHandler handler = new DefaultHandler(){
-                String currentValue = "";
-                boolean currentElement = false;
-                public void startElement(String uri, String localName,String qName, Attributes attributes) throws SAXException {
-                    currentElement = true;
-                    currentValue = "";
-                    if(localName.equals("question")){
-                        question = new Question();
-                        question.reponse = new ArrayList<>();
-                    }
-                    else if(localName.equals("reponse")) {
-                        reponse = new Reponse();
-                    }
-                }
-                public void endElement(String uri, String localName, String qName) throws SAXException {
-                    currentElement = false;
-
-                    if (localName.equalsIgnoreCase("id_question")){
-                        question.id = Integer.parseInt(currentValue);
-                    }
-
-                    if (question.id == 3){
-                        if (localName.equalsIgnoreCase("nom_question")){
-                            question.nom = currentValue;
-                        }
-                        else if (localName.equalsIgnoreCase("id_reponse")){
-                            reponse.id = Integer.parseInt(currentValue);
-                        }
-                        else if (localName.equalsIgnoreCase("nom_reponse")){
-                            reponse.nom = currentValue;
-                        }
-                        else if (localName.equalsIgnoreCase("reponse")){
-
-                            question.reponse.add(reponse);
-                        }
-                        else if (localName.equalsIgnoreCase("question")){
-
-                            questionList.add(question);
-                        }
-                    }
-                }
-                @Override
-                public void characters(char[] ch, int start, int length) throws SAXException {
-                    if (currentElement) {
-                        currentValue = currentValue +  new String(ch, start, length);
-                    }
-                }
-            };
-
-            InputStream istream = getAssets().open("questions.xml");
-            parser.parse(istream,handler);
-
-            LinearLayout boutonsLayout = (LinearLayout) findViewById(R.id.buttonsLayout);
-            TextView questionView = findViewById(R.id.questionView);
-            for(Question question : questionList){
-
-                questionView.setText(question.nom);
-
-                for(Reponse reponse : question.reponse){
-                    Button btn = new Button(WelcomeActivity.this);
-                    btn.setText(reponse.nom);
-                    boutonsLayout.addView(btn);
-                }
+            for(Reponse reponse : question.reponse){
+                Button btn = new Button(WelcomeActivity.this);
+                btn.setText(reponse.nom);
+                boutonsLayout.addView(btn);
             }
-
-
-
-            String t = "t";
-            //ListAdapter adapter = new SimpleAdapter(WelcomeActivity.this, questionList, R.layout.list_row,new String[]{"name","reponse","id"}, new int[]{R.id.name, R.id.reponse_1, R.id.reponse_2});
-            //lv.setAdapter(adapter);
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
         }
 
     }
