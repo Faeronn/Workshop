@@ -1,10 +1,12 @@
 package com.workstudy.workshop;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -24,33 +26,20 @@ import java.util.HashMap;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+import com.workstudy.workshop.Question;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class WelcomeActivity extends AppCompatActivity{
+public class ReadXML {
 
-    ArrayList<Question> questionList = new ArrayList<>();
-    ArrayList<Reponse>  reponseList  = new ArrayList<>();
-    Question question = new Question();
-    Reponse  reponse  = new Reponse();
+    private ArrayList<Question> questionList = new ArrayList<>();
+    private ArrayList<Reponse>  reponseList  = new ArrayList<>();
+    private Question question = new Question();
+    private Reponse  reponse  = new Reponse();
 
-    @SuppressLint("SourceLockedOrientationActivity")
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window w = getWindow();
-            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        }
-
-
+    public Question ReturnOneQuestion (Context context, final int idQuestion){
         try{
-
-
-
             SAXParserFactory parserFactory = SAXParserFactory.newInstance();
             SAXParser parser = parserFactory.newSAXParser();
             DefaultHandler handler = new DefaultHandler(){
@@ -74,7 +63,7 @@ public class WelcomeActivity extends AppCompatActivity{
                         question.id = Integer.parseInt(currentValue);
                     }
 
-                    if (question.id == 1){
+                    if (question.id == idQuestion){
                         if (localName.equalsIgnoreCase("nom_question")){
                             question.nom = currentValue;
                         }
@@ -102,21 +91,9 @@ public class WelcomeActivity extends AppCompatActivity{
                 }
             };
 
-            InputStream istream = getAssets().open("questions.xml");
+
+            InputStream istream = context.getAssets().open("questions.xml");
             parser.parse(istream,handler);
-
-            LinearLayout boutonsLayout = (LinearLayout) findViewById(R.id.buttonsLayout);
-            TextView questionView = findViewById(R.id.questionView);
-            for(Question question : questionList){
-
-                questionView.setText(question.nom);
-
-                for(Reponse reponse : question.reponse){
-                    Button btn = new Button(WelcomeActivity.this);
-                    btn.setText(reponse.nom);
-                    boutonsLayout.addView(btn);
-                }
-            }
 
 
 
@@ -132,5 +109,6 @@ public class WelcomeActivity extends AppCompatActivity{
             e.printStackTrace();
         }
 
+        return question;
     }
 }
