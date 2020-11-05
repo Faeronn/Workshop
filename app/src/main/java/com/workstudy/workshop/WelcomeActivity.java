@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +23,8 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+        blink();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window w = getWindow();
@@ -38,5 +43,31 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 finish();
                 break;
         }
+    }
+
+    int timeToBlink = 800;
+
+    private void blink(){
+        final Handler handler = new Handler();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                   //in milissegunds
+                try{Thread.sleep(timeToBlink);}catch (Exception e) {}
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        TextView txt = (TextView) findViewById(R.id.playText);
+                        if(txt.getVisibility() == View.VISIBLE){
+                            txt.setVisibility(View.INVISIBLE);
+                            timeToBlink = 500;
+                        }else{
+                            txt.setVisibility(View.VISIBLE);
+                        }
+                        blink();
+                    }
+                });
+            }
+        }).start();
     }
 }

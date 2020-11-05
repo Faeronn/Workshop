@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<questions>
+
+    <question>
+        <nom_categorie>Global</nom_categorie>
+        <id_question>1</id_question>
+        <nom_question>En tant que maire, vous préférez mettre en priorité quel aspect de votre ville ?</nom_question>
+        <reponse>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>On aime les gens !</nom_reponse>
+        </reponse>
+        <reponse>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>L'argent c'est cool !</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Global</nom_categorie>
+        <id_question>2</id_question>
+        <nom_question>Votre économie est basé sur quoi ?</nom_question>
+        <reponse>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>Sur l'industrie !</nom_reponse>
+        </reponse>
+        <reponse>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>Sur l'agriculture !</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Global</nom_categorie>
+        <id_question>3</id_question>
+        <nom_question>Votre ville se situe dans quel milieu ?</nom_question>
+        <reponse>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>Allons vers la mer !</nom_reponse>
+        </reponse>
+        <reponse>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>Partons pour les montagnes !</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Nature</nom_categorie>
+        <id_question>4</id_question>
+        <nom_question>Les organisations se plaignent de l’état de nos corailles/fôrets/montagnes, doit-on limiter le tourisme ?</nom_question>
+        <reponse>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>-30</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>-10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-10000</stat_ressource>
+            </ressource>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>On va freiner le tourisme.</nom_reponse>
+        </reponse>
+        <reponse>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>+30</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>+10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>+20000</stat_ressource>
+            </ressource>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>On continue le tourisme !</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Nature</nom_categorie>
+        <id_question>5</id_question>
+        <nom_question>Nos concitoyens se sont plaints de déchets dans nos parcs, doit-on embaucher des personnes pour le nettoyage des parcs ?</nom_question>
+        <reponse>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>+10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>-10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>+25000</stat_ressource>
+            </ressource>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>Embauchez en 1000 !</nom_reponse>
+        </reponse>
+        <reponse>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>+10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>-5</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>+25000</stat_ressource>
+            </ressource>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>Non on fait des travaux.</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Habitant</nom_categorie>
+        <id_question>6</id_question>
+        <nom_question>Dans le dernier conseil d'administration on nous a conseiller d'ajouter des habitations pour de futurs concitoyens, avez-vous réfléchit ?</nom_question>
+        <reponse>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>+20</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-40000</stat_ressource>
+            </ressource>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>Créeons des maisons !</nom_reponse>
+        </reponse>
+        <reponse>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>-10</stat_ressource>
+            </ressource>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>J'aime pas les gens.</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Global</nom_categorie>
+        <id_question>7</id_question>
+        <nom_question>Maire ! Nous sommes en manque d’énergie on doit agir vite !</nom_question>
+        <reponse>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>-20</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-100000</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>-10</stat_ressource>
+            </ressource>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>Installez des éoliennes !</nom_reponse>
+        </reponse>
+        <reponse>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>+15</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-150000</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>+10</stat_ressource>
+            </ressource>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>Construisez une centrale !</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Evenement</nom_categorie>
+        <id_question>8</id_question>
+        <nom_question>La banque centrale souhaiterait investir dans des usines textiles pour produire des masques, êtes-vous intéressés Maire ?</nom_question>
+        <reponse>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>+15</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>+20</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>+20000</stat_ressource>
+            </ressource>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>Bien-sûr que oui !</nom_reponse>
+        </reponse>
+        <reponse>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>-10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>-10</stat_ressource>
+            </ressource>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>Pas besoin de ça.</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Technologie</nom_categorie>
+        <id_question>9</id_question>
+        <nom_question>Une entreprise vous contacte et vous demande si elle peut produire un objet innovant qui pourrait changer notre quotidien !</nom_question>
+        <reponse>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>+10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>+10000</stat_ressource>
+            </ressource>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>Testons ça !</nom_reponse>
+        </reponse>
+        <reponse>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>Je préfère pas.</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Nature</nom_categorie>
+        <id_question>10</id_question>
+        <nom_question>Nous avons constatés une augmentation du CO2 cet été, doit-on limiter le déplacement des voitures et prioriser les transports en commun ?</nom_question>
+        <reponse>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>-15</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>-10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-20000</stat_ressource>
+            </ressource>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>On part sur des bus.</nom_reponse>
+        </reponse>
+        <reponse>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>+15</stat_ressource>
+            </ressource>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>Les voitures c'est cool !</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Habitant</nom_categorie>
+        <id_question>11</id_question>
+        <nom_question>Un habitant souhaite installer une mini éolienne, cependant ces voisins ne sont pas d’accord, doit-on le laisser faire ?</nom_question>
+        <reponse>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>-5</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>+5</stat_ressource>
+            </ressource>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>Bien-sûr !</nom_reponse>
+        </reponse>
+        <reponse>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>Mettez lui une amende.</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Habitant</nom_categorie>
+        <id_question>12</id_question>
+        <nom_question>Les étudiants des lycées locaux se plaignent de la chaleur en cours en été, doit-on installer des climatiseurs ?</nom_question>
+        <reponse>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>+10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>+15</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-30000</stat_ressource>
+            </ressource>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>Investissez maintenant !</nom_reponse>
+        </reponse>
+        <reponse>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>-10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>-20</stat_ressource>
+            </ressource>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>Ne leur répondait pas.</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Nature</nom_categorie>
+        <id_question>13</id_question>
+        <nom_question>La population proteste à cause des sachets en plastique polluant dans notre Auchan, doit-on agir ?</nom_question>
+        <reponse>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>-20</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>+10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-60000</stat_ressource>
+            </ressource>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>On fait ça dès demain !</nom_reponse>
+        </reponse>
+        <reponse>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>+15</stat_ressource>
+            </ressource>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>Ils se calmeront.</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Nature</nom_categorie>
+        <id_question>1</id_question>
+        <nom_question>Comment doit on traiter les détritus industriels ?</nom_question>
+        <reponse>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-80000</stat_ressource>
+            </ressource>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>Un centre de recyclage !</nom_reponse>
+        </reponse>
+        <reponse>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>+10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-60000</stat_ressource>
+            </ressource>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>On brûle TOUT !</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Nucleaire</nom_categorie>
+        <id_question>15</id_question>
+        <nom_question>De plus en plus de personnes se plaignent du “danger” d’avoir une centrale nucléaire à proximité, est-il nécessaire de la fermer ?</nom_question>
+        <reponse>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>-20</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>+10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-50000</stat_ressource>
+            </ressource>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>Enlevez ça maintenant !</nom_reponse>
+        </reponse>
+        <reponse>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>-20</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>+20</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-10000</stat_ressource>
+            </ressource>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>Mais non c'est sécurisé !</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Evenement</nom_categorie>
+        <id_question>16</id_question>
+        <nom_question>Marvel nous propose en échange d’une grande somme, de faire la pub de leur prochain film “Avengers V” avec des affiches un peu partout dans la ville :</nom_question>
+        <reponse>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>+15</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>+20</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-30000</stat_ressource>
+            </ressource>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>On accepte direct.</nom_reponse>
+        </reponse>
+        <reponse>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>-10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>-15</stat_ressource>
+            </ressource>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>Nous déclinons l'offre.</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Evenement</nom_categorie>
+        <id_question>17</id_question>
+        <nom_question>On nous propose de procéder à la construction d’un stade pour la coupe du monde 2026, ce serait une occasion en or pour faire connaitre au monde nos spécialités locaux !</nom_question>
+        <reponse>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>+30</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>+30</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>+20000</stat_ressource>
+            </ressource>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>Commencez à construire !</nom_reponse>
+        </reponse>
+        <reponse>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>J'aime pas le foot.</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Evenement</nom_categorie>
+        <id_question>18</id_question>
+        <nom_question>Maire ! Burger King souhaite s’installer dans notre ville !</nom_question>
+        <reponse>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>+15</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>+20</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-10000</stat_ressource>
+            </ressource>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>Il faut leur burger !</nom_reponse>
+        </reponse>
+        <reponse>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>-15</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>-10</stat_ressource>
+            </ressource>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>Je prefère MCDO.</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Evenement</nom_categorie>
+        <id_question>19</id_question>
+        <nom_question>Une marque connue à proposer de s’installer dans notre ville mais, il faudrait raser une partie de la forêt de Bourg-Palette, que fait-on ?</nom_question>
+        <reponse>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>+20</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>+10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-20000</stat_ressource>
+            </ressource>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>On rase tout !</nom_reponse>
+        </reponse>
+        <reponse>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>-10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>-5</stat_ressource>
+            </ressource>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>On refuse leur offre.</nom_reponse>
+        </reponse>
+    </question>
+
+    <question>
+        <nom_categorie>Technologie</nom_categorie>
+        <id_question>20</id_question>
+        <nom_question>Orange, Free et Bouygue Telecom proposent d’installer la 5G, acceptons-nous leur offre ?</nom_question>
+        <reponse>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>+30</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>+10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>1</id_ressource>
+                <stat_ressource>-40000</stat_ressource>
+            </ressource>
+            <id_reponse>1</id_reponse>
+            <nom_reponse>Acceptez !</nom_reponse>
+        </reponse>
+        <reponse>
+            <ressource>
+                <id_ressource>3</id_ressource>
+                <stat_ressource>-10</stat_ressource>
+            </ressource>
+            <ressource>
+                <id_ressource>2</id_ressource>
+                <stat_ressource>-10</stat_ressource>
+            </ressource>
+            <id_reponse>2</id_reponse>
+            <nom_reponse>C'est pas bon les ondes.</nom_reponse>
+        </reponse>
+    </question>
+
+</questions>
